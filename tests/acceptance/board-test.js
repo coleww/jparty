@@ -32,3 +32,11 @@ test('board shows answers', function(assert) {
     assert.equal(find('.answer').size(), 30);
   });
 });
+
+test('board shows players', function(assert){
+  visit('/');
+
+  andThen(function(){
+    assert.equal(find('.player').size(), 3);
+  });
+});
