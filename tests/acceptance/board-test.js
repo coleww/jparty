@@ -57,3 +57,22 @@ test('board shows players', function(assert){
     assert.equal(find('.player').size(), 3);
   });
 });
+
+test('clicking an answer reveals it', function(assert) {
+  assert.expect(2);
+  var category = server.create('category');
+  var answerJSON = {
+    question: 'on this game show, contestants must reply in the form of a question.',
+    category_id: category.id,
+    value: 200
+  };
+  var answer = server.create('answer', answerJSON);
+  visit('/');
+
+  click('.answer:eq(0)');
+
+  andThen(function() {
+    assert.equal(find('.answer-revealed').text().replace(/^\s+|\s+$/g, ''), 'ON THIS GAME SHOW, CONTESTANTS MUST REPLY IN THE FORM OF A QUESTION.');
+    assert.equal(currentRouteName(), 'game.answer');
+  });
+});

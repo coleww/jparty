@@ -7,7 +7,7 @@ var Router = Ember.Router.extend({
 
 Router.map(function() {
   this.resource('game', {path: '/'}, function(){
-
+    this.route('answer', {path: '/categories/:category_id/answer/:answer_value'});
   });
 });
 

@@ -1,6 +1,16 @@
 export default function() {
 
   this.get('/categories');
+
+  this.get('/answers', function(db, request){
+    var category_id = +request.queryParams.category;
+    var value = +request.queryParams.value;
+    var answers = db.answers.where({category_id: category_id, value: value});
+
+    return {
+      answers: answers
+    };
+  });
   // These comments are here to help you get started. Feel free to delete them.
 
   /*
