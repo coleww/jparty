@@ -17,11 +17,23 @@ module('Acceptance: Game Board', {
   }
 });
 
-test('board shows categories', function(assert) {
+test('board show names of categories', function(assert) {
+  assert.expect(6);
+  server.create('category', {title: 'animals'});
+  server.create('category', {title: 'science'});
+  server.create('category', {title: 'holidays \u0026 observances'});
+  server.create('category', {title: 'before \u0026 after'});
+  server.create('category', {title: 'american history'});
+  server.create('category', {title: '3 letter words'});
   visit('/');
 
   andThen(function() {
-    assert.equal(find('.category').size(), 6);
+    assert.equal(find('.category:contains("ANIMALS")').size(), 1);
+    assert.equal(find('.category:contains("SCIENCE")').size(), 1);
+    assert.equal(find('.category:contains("HOLIDAYS & OBSERVANCES")').size(), 1);
+    assert.equal(find('.category:contains("BEFORE & AFTER")').size(), 1);
+    assert.equal(find('.category:contains("AMERICAN HISTORY")').size(), 1);
+    assert.equal(find('.category:contains("3 LETTER WORDS")').size(), 1);
   });
 });
 
