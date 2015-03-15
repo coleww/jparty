@@ -50,11 +50,15 @@ test('answers show value', function(assert) {
   });
 });
 
-test('board shows players', function(assert){
+test('board shows players with default names', function(assert){
+  assert.expect(4);
   visit('/');
 
   andThen(function(){
-    assert.equal(find('.player').size(), 3);
+    assert.equal(find('.player .name:contains("Player 1")').size(), 1);
+    assert.equal(find('.player .name:contains("Player 2")').size(), 1);
+    assert.equal(find('.player .name:contains("Player 3")').size(), 1);
+    assert.equal(find('.player .score:contains("$0")').size(), 3);
   });
 });
 
