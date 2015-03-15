@@ -25,3 +25,10 @@ test('board shows categories', function(assert) {
   });
 });
 
+test('board shows answers', function(assert) {
+  visit('/');
+
+  andThen(function() {
+    assert.equal(find('.answer').size(), 30);
+  });
+});
