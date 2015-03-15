@@ -37,11 +37,16 @@ test('board show names of categories', function(assert) {
   });
 });
 
-test('board shows answers', function(assert) {
+test('answers show value', function(assert) {
+  assert.expect(5);
+  for(var i=0;i<6;i++) server.create('category');
   visit('/');
-
   andThen(function() {
-    assert.equal(find('.answer').size(), 30);
+    assert.equal(find('.answer:contains("$200")').size(), 6);
+    assert.equal(find('.answer:contains("$400")').size(), 6);
+    assert.equal(find('.answer:contains("$600")').size(), 6);
+    assert.equal(find('.answer:contains("$800")').size(), 6);
+    assert.equal(find('.answer:contains("$1000")').size(), 6);
   });
 });
 

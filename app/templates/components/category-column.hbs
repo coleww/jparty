@@ -1,6 +1,4 @@
 <div class="category">{{category.displayTitle}}</div>
-<div class="answer"></div>
-<div class="answer"></div>
-<div class="answer"></div>
-<div class="answer"></div>
-<div class="answer"></div>
+{{#each value in answerValues}}
+  <div class="answer">${{value}}</div>
+{{/each}}
