@@ -1,7 +1,20 @@
 # Jparty
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+An Ember front-end for [jservice](http://jservice.io/)
+
+_________________________________________________
+
+### TODO:
+
+- import sample data with mirage (following jservice api)([THIS SEEMS LIKE "THE WAY"](https://github.com/chancancode/hn-reader/blob/master/app/adapters/article.js))
+- create board, 6 categories, 5 clues each. (pull categories at random somehow.../api/categories?count=100&offset=18100) (oh it would be cool to be easily able to "make yr own")
+- create player component that has name/$
+- viewing a clue: category/:category_id/clue/:$_amount (fetch on demand)
+- store state of board in LS?
+- hook up [this](https://www.npmjs.com/package/ember-websockets) to [this](https://github.com/websockets/ws) so the "host" can see answers. sync via game_id? (could this be "same app"-different-route?)
+- maybe make a mini buzzer/timer/drawing/betting app...cordova?
+- daily doubles/double/final rounds...
+
 
 ## Prerequisites
 
