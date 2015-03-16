@@ -1,6 +1,4 @@
 <div class="category">{{category.displayTitle}}</div>
-{{#each value in answerValues}}
-  {{#link-to 'game.answer' category.id value}}
-    <div class="answer">${{value}}</div>
-  {{/link-to}}
+{{#each value in category.answers}}
+  <div class="answer">${{value.value}}</div>
 {{/each}}
