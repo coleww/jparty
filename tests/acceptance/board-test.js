@@ -80,3 +80,21 @@ test('clicking an answer reveals it', function(assert) {
     assert.equal(currentRouteName(), 'game.answer');
   });
 });
+
+test('answer can be passed', function(assert) {
+  assert.expect(2);
+  var category = server.create('category');
+  var answer = server.create('answer', {category_id: category.id});
+  visit('/');
+
+  andThen(function(){
+    assert.equal(find('.answer:eq(0)').text(), '$200');
+  });
+
+  click('.answer:eq(0)');
+  click('.pass');
+
+  andThen(function() {
+    assert.equal(find('.answer:eq(0)').text(), '');
+  });
+});

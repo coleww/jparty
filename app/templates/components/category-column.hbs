@@ -1,4 +1,8 @@
 <div class="category">{{category.displayTitle}}</div>
 {{#each value in category.answers}}
-  <div class="answer">${{value.value}}</div>
+  {{#if value.asked}}
+    <div class="answer"></div>
+  {{else}}
+    <div class="answer" {{action 'ask' category value}}>${{value.value}}</div>
+  {{/if}}
 {{/each}}
