@@ -5,14 +5,16 @@ export default Ember.Service.extend({
     this._super();
     if (!this.get('players.length')){
       // Why is this not being reset between tests?
-      this._createDefaultPlayers();
+      this._setDefaultPlayers();
     }
   },
   players: Ember.A([]),
-  _createDefaultPlayers: function(){
+  _setDefaultPlayers: function(){
+    var players = Ember.A();
     for(var i=1;i<=3;i++){
-      var player = Ember.Object.create({name: 'Player ' + i, score: 0});
-      this.get('players').pushObject(player);
+      var player = Ember.Object.create({name: 'Player ' + i, score: 0, active: false});
+      players.pushObject(player);
     }
+    this.set('players', players);
   }
 });
