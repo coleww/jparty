@@ -10,9 +10,11 @@ export default Ember.Route.extend({
     controller.set('players', this.get('players'));
   },
   actions: {
-    endRound: function(){
+    leavingAnswer: function(){
       this.get('players').set('currentAnswer', null);
-      this.transitionTo('game.index');
+    },
+    endRound: function(){
+      this.transitionTo('game.index'); // will trigger leavingAnswer
     },
     ask: function(category, value){
       this.transitionTo('game.answer', category, value.get('value'));

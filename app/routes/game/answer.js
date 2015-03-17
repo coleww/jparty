@@ -7,5 +7,8 @@ export default Ember.Route.extend({
   setupController: function(controller, model){
     var answer = model.objectAt([~~(Math.random() * model.length)]);
     controller.set('model', answer);
+  },
+  deactivate: function(){
+    this.send('leavingAnswer');
   }
 });
