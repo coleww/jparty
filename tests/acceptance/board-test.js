@@ -164,3 +164,17 @@ test('assign/deduct buttons disappear after use', function(assert){
     assert.equal(find('.player .deduct').size(), 2);
   });
 });
+
+
+test('deducting points from all players closes the answer', function(assert){
+  assert.expect(1);
+  var category = server.create('category');
+  var answer = server.create('answer', {category_id: category.id});
+
+  visit('/');
+  click('.answer:eq(0)');
+  click('.deduct');
+  andThen(function() {
+    assert.equal(currentRouteName(), 'game.index');
+  });
+});
