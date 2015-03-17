@@ -4,8 +4,9 @@
       {{player.name}}
     </span>
     <span class="score">
-      ${{player.score}}
+      {{score-display player.score}}
     </span>
     <button class="assign" {{action "assign" player}}>+</button>
+    <button class="deduct" {{action "deduct" player}}>-</button>
   </div>
 {{/each}}

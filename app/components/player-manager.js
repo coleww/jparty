@@ -6,7 +6,11 @@ export default Ember.Component.extend({
   actions: {
     assign: function(player){
       var answer = this.get('service.currentAnswer');
-      player.set('score', answer.get('value'));
+      player.incrementProperty('score', answer.get('value'));
+    },
+    deduct: function(player){
+      var answer = this.get('service.currentAnswer');
+      player.decrementProperty('score', answer.get('value'));
     }
   }
 });
