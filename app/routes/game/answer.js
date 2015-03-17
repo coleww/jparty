@@ -11,6 +11,9 @@ export default Ember.Route.extend({
   actions: {
     pass: function(){
       this.transitionTo('game.index');
+    },
+    endRound: function(){
+      this.transitionTo('game.index');
     }
   }
 });
