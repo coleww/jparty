@@ -106,8 +106,8 @@ test('answer can be passed', function(assert) {
   });
 });
 
-test('answer value can be assigned to players score, and ends the answer', function(assert) {
-  assert.expect(3);
+test('answer value can be assigned to players score, which ends the answer, and hides assign/deduct buttons', function(assert) {
+  assert.expect(5);
   var category = server.create('category');
   var answer = server.create('answer', {category_id: category.id});
 
@@ -123,6 +123,8 @@ test('answer value can be assigned to players score, and ends the answer', funct
   andThen(function() {
     assert.equal(find('.player .score:eq(0)').text().replace(/^\s+|\s+$/g, ''), '$200');
     assert.equal(currentRouteName(), 'game.index');
+    assert.equal(find('.player .assign').size(), 0);
+    assert.equal(find('.player .deduct').size(), 0);
   });
 });
 
