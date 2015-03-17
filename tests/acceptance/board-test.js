@@ -50,8 +50,8 @@ test('answers show value', function(assert) {
   });
 });
 
-test('board shows players with default names', function(assert){
-  assert.expect(4);
+test('board shows players with default names, which can be changed', function(assert){
+  assert.expect(5);
   visit('/');
 
   andThen(function(){
@@ -59,6 +59,13 @@ test('board shows players with default names', function(assert){
     assert.equal(find('.player .name:contains("Player 2")').size(), 1);
     assert.equal(find('.player .name:contains("Player 3")').size(), 1);
     assert.equal(find('.player .score:contains("$0")').size(), 3);
+  });
+  click('.player .name:eq(0)');
+  fillIn('.player .edit-name:eq(0)', 'Ned');
+  keyEvent('.player .edit-name:eq(0)', 'keyup', 13);
+
+  andThen(function(){
+    assert.equal(find('.player .name:contains("Ned")').size(), 1);
   });
 });
 

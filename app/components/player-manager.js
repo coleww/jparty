@@ -20,6 +20,12 @@ export default Ember.Component.extend({
       if(this.get('noPlayersActive')){
         this.sendAction('endRound');
       }
+    },
+    editName: function(player){
+      player.set('editingName', true);
+    },
+    saveName: function(){
+      this.get('players').invoke('set', 'editingName', false);
     }
   }
 });
