@@ -98,3 +98,22 @@ test('answer can be passed', function(assert) {
     assert.equal(find('.answer:eq(0)').text(), '');
   });
 });
+
+test('answer value can be assigned to players score', function(assert) {
+  assert.expect(2);
+  var category = server.create('category');
+  var answer = server.create('answer', {category_id: category.id});
+
+  visit('/');
+
+  andThen(function() {
+    assert.equal(find('.player .score:eq(0)').text().replace(/^\s+|\s+$/g, ''), '$0');
+  });
+
+  click('.answer:eq(0)');
+  click('.player .assign:eq(0)');
+
+  andThen(function() {
+    assert.equal(find('.player .score:eq(0)').text().replace(/^\s+|\s+$/g, ''), '$200');
+  });
+});
