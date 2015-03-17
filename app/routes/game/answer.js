@@ -7,13 +7,5 @@ export default Ember.Route.extend({
   setupController: function(controller, model){
     var answer = model.objectAt([~~(Math.random() * model.length)]);
     controller.set('model', answer);
-  },
-  actions: {
-    pass: function(){
-      this.transitionTo('game.index');
-    },
-    endRound: function(){
-      this.transitionTo('game.index');
-    }
   }
 });

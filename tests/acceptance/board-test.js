@@ -88,8 +88,8 @@ test('clicking an answer reveals it', function(assert) {
   });
 });
 
-test('answer can be passed', function(assert) {
-  assert.expect(2);
+test('answer can be passed, which hides assign/deduct buttons', function(assert) {
+  assert.expect(4);
   var category = server.create('category');
   var answer = server.create('answer', {category_id: category.id});
   visit('/');
@@ -102,7 +102,9 @@ test('answer can be passed', function(assert) {
   click('.pass');
 
   andThen(function() {
-    assert.equal(find('.answer:eq(0)').text(), '');
+    assert.equal(currentRouteName(), 'game.index');
+    assert.equal(find('.player .assign').size(), 0);
+    assert.equal(find('.player .deduct').size(), 0);
   });
 });
 
