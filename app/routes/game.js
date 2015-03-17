@@ -10,11 +10,8 @@ export default Ember.Route.extend({
     controller.set('players', this.get('players'));
   },
   actions: {
-    pass: function(){
-      this.get('players').set('currentAnswer', null);
-      this.transitionTo('game.index');
-    },
     endRound: function(){
+      this.get('players').set('currentAnswer', null);
       this.transitionTo('game.index');
     }
   }

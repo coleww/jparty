@@ -11,7 +11,6 @@ export default Ember.Component.extend({
     assign: function(player){
       var answer = this.get('service.currentAnswer');
       player.incrementProperty('score', answer.get('value'));
-      this.get('players').invoke('set', 'active', false);
       this.sendAction('endRound');
     },
     deduct: function(player){
