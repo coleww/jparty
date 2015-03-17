@@ -3,10 +3,7 @@ import Ember from 'ember';
 export default Ember.Service.extend({
   init: function(){
     this._super();
-    if (!this.get('players.length')){
-      // Why is this not being reset between tests?
-      this._setDefaultPlayers();
-    }
+    this._setDefaultPlayers();
   },
   players: Ember.A([]),
   currentAnswer: null,
