@@ -11,6 +11,7 @@ export default Ember.Component.extend({
     deduct: function(player){
       var answer = this.get('service.currentAnswer');
       player.decrementProperty('score', answer.get('value'));
+      player.set('active', false);
     }
   }
 });

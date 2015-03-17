@@ -136,3 +136,30 @@ test('answer value can be deducted from players score', function(assert) {
     assert.equal(find('.player .score:eq(1)').text().replace(/^\s+|\s+$/g, ''), '-$200');
   });
 });
+
+test('assign/deduct buttons disappear after use', function(assert){
+  assert.expect(6);
+  var category = server.create('category');
+  var answer = server.create('answer', {category_id: category.id});
+
+  visit('/');
+
+  andThen(function() {
+    assert.equal(find('.player .assign').size(), 0);
+    assert.equal(find('.player .deduct').size(), 0);
+  });
+
+  click('.answer:eq(0)');
+
+  andThen(function() {
+    assert.equal(find('.player .assign').size(), 3);
+    assert.equal(find('.player .deduct').size(), 3);
+  });
+
+  click('.player .deduct:eq(0)');
+
+  andThen(function() {
+    assert.equal(find('.player .assign').size(), 2);
+    assert.equal(find('.player .deduct').size(), 2);
+  });
+});

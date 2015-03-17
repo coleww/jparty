@@ -9,6 +9,14 @@ export default Ember.Service.extend({
     }
   },
   players: Ember.A([]),
+  currentAnswer: null,
+  answerWatcher: function(){
+    if(this.get('currentAnswer')){
+      this.get('players').invoke('set', 'active', true);
+    }else {
+      this.get('players').invoke('set', 'active', false);
+    }
+  }.observes('currentAnswer'),
   _setDefaultPlayers: function(){
     var players = Ember.A();
     for(var i=1;i<=3;i++){

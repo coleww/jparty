@@ -6,7 +6,9 @@
     <span class="score">
       {{score-display player.score}}
     </span>
-    <button class="assign" {{action "assign" player}}>+</button>
-    <button class="deduct" {{action "deduct" player}}>-</button>
+    {{#if player.active}}
+      <button class="assign" {{action "assign" player}}>+</button>
+      <button class="deduct" {{action "deduct" player}}>-</button>
+    {{/if}}
   </div>
 {{/each}}
