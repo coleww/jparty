@@ -3,10 +3,10 @@ import Ember from 'ember';
 export default Ember.Route.extend({
   players: Ember.inject.service('players'),
   model: function(){
-    return this.store.findAll('category');
+    var randomOffset = ~~(Math.random() * 18100);
+    return this.store.find('category', {count: 100, offset: randomOffset});
   },
-  setupController: function(controller, model){
-    controller.set('model', model);
+  setupController: function(controller){
     controller.set('players', this.get('players'));
   },
   actions: {

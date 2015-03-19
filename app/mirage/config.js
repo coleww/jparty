@@ -1,6 +1,8 @@
 export default function() {
 
-  this.get('/categories');
+  this.get('/categories', function(db){
+    return db.categories;
+  });
 
   this.get('/answers', function(db, request){
     var category_id = +request.queryParams.category;
