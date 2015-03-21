@@ -2,6 +2,7 @@ import Ember from 'ember';
 import layout from '../templates/components/player-manager';
 
 export default Ember.Component.extend({
+  classNames: ['players'],
   layout: layout,
   players: Ember.computed.alias('service.players'),
   activePlayers: Ember.computed.filterBy('players', 'active'),

@@ -1,8 +1,8 @@
-<div class="category">{{category.displayTitle}}</div>
+<div class="category cell">{{category.displayTitle}}</div>
 {{#each value in category.answers}}
   {{#if value.asked}}
-    <div class="answer"></div>
+    <div class="answer cell"></div>
   {{else}}
-    <div class="answer" {{action 'ask' category value}}>${{value.value}}</div>
+    <div class="answer cell" {{action 'ask' category value}}>${{value.value}}</div>
   {{/if}}
 {{/each}}

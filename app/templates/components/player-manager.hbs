@@ -1,18 +1,18 @@
 {{#each player in service.players}}
   <div class="player">
+    <div class="score">
+      {{score-display player.score}}
+    </div>
     {{#if player.editingName}}
       {{input action="saveName" placeholder=player.name value=player.name class="edit-name" }}
     {{else}}
-      <span class="name" {{action "editName" player}}>
+      <div class="name" {{action "editName" player}}>
         {{player.name}}
-      </span>
+      </div>
     {{/if}}
-    <span class="score">
-      {{score-display player.score}}
-    </span>
     {{#if player.active}}
-      <button class="assign" {{action "assign" player}}>+</button>
       <button class="deduct" {{action "deduct" player}}>-</button>
+      <button class="assign" {{action "assign" player}}>+</button>
     {{/if}}
   </div>
 {{/each}}
