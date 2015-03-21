@@ -6,6 +6,9 @@ export default Ember.Component.extend({
   layout: layout,
   actions: {
     ask: function(category, value){
+      if (value.asked){
+        return false;
+      }
       this.sendAction('ask', category.get('id'), value);
       value.set('asked', true);
     }

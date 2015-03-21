@@ -97,7 +97,7 @@ test('answer can be passed, which hides assign/deduct buttons', function(assert)
   visit('/');
 
   andThen(function(){
-    assert.equal(find('.answer:eq(0)').text(), '$200');
+    assert.equal(find('.answer:eq(0)').text().replace(/^\s+|\s+$/g, ''), '$200');
   });
 
   click('.answer:eq(0)');
