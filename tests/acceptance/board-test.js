@@ -17,14 +17,15 @@ module('Acceptance: Game Board', {
   }
 });
 
-test('board show names of categories', function(assert) {
-  assert.expect(6);
+test('board show names of 6 categories', function(assert) {
+  assert.expect(7);
   server.create('category', {title: 'animals'});
   server.create('category', {title: 'science'});
   server.create('category', {title: 'holidays \u0026 observances'});
   server.create('category', {title: 'before \u0026 after'});
   server.create('category', {title: 'american history'});
   server.create('category', {title: '3 letter words'});
+  server.create('category', {title: 'NONO', clues_count: 5});
   visit('/');
 
   andThen(function() {
@@ -34,6 +35,7 @@ test('board show names of categories', function(assert) {
     assert.equal(find('.category:contains("BEFORE & AFTER")').size(), 1);
     assert.equal(find('.category:contains("AMERICAN HISTORY")').size(), 1);
     assert.equal(find('.category:contains("3 LETTER WORDS")').size(), 1);
+    assert.equal(find('.category').size(), 6);
   });
 });
 
