@@ -3,9 +3,6 @@ import Ember from 'ember';
 
 export default DS.Model.extend({
   title: DS.attr('string'),
-  displayTitle: function(){
-    return this.get('title').toUpperCase();
-  }.property('title'),
   clues_count: DS.attr('number'),
 
   answers: null,

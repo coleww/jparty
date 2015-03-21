@@ -2,6 +2,7 @@ import {
   moduleForComponent,
   test
 } from 'ember-qunit';
+import Ember from 'ember';
 
 moduleForComponent('category-column', {
   // specify the other units that are required for this test
@@ -14,6 +15,11 @@ test('it renders', function(assert) {
   // creates the component instance
   var component = this.subject();
   assert.equal(component._state, 'preRender');
+
+  Ember.run(function() {
+    var category = Ember.Object.create({title: 'cats'});
+    component.set('category', category);
+  });
 
   // renders the component to the page
   this.render();

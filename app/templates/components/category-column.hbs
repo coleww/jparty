@@ -1,4 +1,4 @@
-<div class="category cell">{{category.displayTitle}}</div>
+<div class="category cell">{{categoryTitle}}</div>
 {{#each value in category.answers}}
   <div class="answer cell" {{action 'ask' category value}}>
     {{#if value.asked}}
