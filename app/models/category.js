@@ -6,6 +6,8 @@ export default DS.Model.extend({
   displayTitle: function(){
     return this.get('title').toUpperCase();
   }.property('title'),
+  clues_count: DS.attr('number'),
+
   answers: null,
   addAnswers: function(){
     var answers = Ember.A([
