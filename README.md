@@ -2,6 +2,8 @@
 
 An Ember front-end for [jservice](http://jservice.io/)
 
+![demo](./jparty-demo.gif)
+
 _________________________________________________
 
 
