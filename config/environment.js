@@ -19,6 +19,10 @@ module.exports = function(environment) {
     }
   };
 
+  ENV.contentSecurityPolicy = {
+    'connect-src': "'self' https://cors-anywhere.herokuapp.com" // Allow data (ajax/websocket) from api.mixpanel.com and custom-api.local
+  };
+
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
@@ -40,7 +44,8 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.api_host = 'https://cors-anywhere.herokuapp.com/jservice.io';
+    ENV.api_namespace = 'api';
   }
 
   return ENV;
