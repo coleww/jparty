@@ -5,7 +5,7 @@ export default function() {
   });
 
   this.get('/clues', function(db, request){
-    var category_id = +request.queryParams.category_id;
+    var category_id = +request.queryParams.category;
     var value = +request.queryParams.value;
     var answers = db.answers.where({category_id: category_id, value: value});
 
