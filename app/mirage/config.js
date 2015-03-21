@@ -4,14 +4,12 @@ export default function() {
     return db.categories;
   });
 
-  this.get('/answers', function(db, request){
-    var category_id = +request.queryParams.category;
+  this.get('/clues', function(db, request){
+    var category_id = +request.queryParams.category_id;
     var value = +request.queryParams.value;
     var answers = db.answers.where({category_id: category_id, value: value});
 
-    return {
-      answers: answers
-    };
+    return answers;
   });
   // These comments are here to help you get started. Feel free to delete them.
 
