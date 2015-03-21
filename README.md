@@ -4,16 +4,25 @@ An Ember front-end for [jservice](http://jservice.io/)
 
 _________________________________________________
 
-### TODO:
 
-- import sample data with mirage (following jservice api)([THIS SEEMS LIKE "THE WAY"](https://github.com/chancancode/hn-reader/blob/master/app/adapters/article.js))
-- create board, 6 categories, 5 clues each. (pull categories at random somehow.../api/categories?count=100&offset=18100) (oh it would be cool to be easily able to "make yr own")
-- create player component that has name/$
-- viewing a clue: category/:category_id/clue/:$_amount (fetch on demand)
-- store state of board in LS?
-- hook up [this](https://www.npmjs.com/package/ember-websockets) to [this](https://github.com/websockets/ws) so the "host" can see answers. sync via game_id? (could this be "same app"-different-route?)
-- maybe make a mini buzzer/timer/drawing/betting app...cordova?
-- daily doubles/double/final rounds...
+## setting up a jService
+
+This project uses [Ember-CLI Mirage](https://github.com/samselikoff/ember-cli-mirage) to run a mock server in test/development. Just run `ember s` and it works like magic (but serves the same categories/clues every time).
+
+You can also run the app against a local version of jService:
+
+- [clone jservice](https://github.com/sottenad/jService) && `cd jservice`
+- edit database.yml (delete username/password or replace with yr own)
+- `rake db:create`
+- `pg_restore -Fc -d jarchive_development jarchive-jan-20-2015.bak`
+- `rails s`
+- visit http://localhost:3000/ and you should see "137,800 Trivia Questions" if everything worked
+- in yr jparty directory, run `ember serve --proxy http://localhost:3000/`
+
+Or to run the app directly against jservice.io (not recommended)
+
+- `ember serve --environment=production`
+
 
 
 ## Prerequisites
