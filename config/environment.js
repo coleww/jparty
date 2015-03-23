@@ -20,7 +20,7 @@ module.exports = function(environment) {
   };
 
   ENV.contentSecurityPolicy = {
-    'connect-src': "'self' https://cors-anywhere.herokuapp.com"
+    'connect-src': "'self' https://cors-anywhere.herokuapp.com ws://localhost:8080/"
   };
 
   if (environment === 'development') {
