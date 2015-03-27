@@ -1,13 +1,20 @@
 import Ember from 'ember';
+import socketMixin from 'ember-websockets/mixins/sockets';
+import generateGameId from '../helpers/generate-game-id';
 
-export default Ember.Route.extend({
+export default Ember.Route.extend(socketMixin, {
+  socketURL: null,
   players: Ember.inject.service('players'),
   model: function(){
     var randomOffset = ~~(Math.random() * 18100);
     return this.store.find('category', {count: 100, offset: randomOffset});
   },
   setupController: function(controller){
+    var gameId = generateGameId();
+    this.set('socketURL', 'ws://localhost:8080/room/' + gameId);
+    this._super.apply(this, arguments);
     controller.set('players', this.get('players'));
+    controller.set('hostUrl', 'host/'+gameId);
   },
   actions: {
     leavingAnswer: function(){

@@ -6,6 +6,8 @@ export default Ember.Route.extend({
   },
   setupController: function(controller, model){
     var answer = model.objectAt([~~(Math.random() * model.length)]);
+
+    this.send('emit', {q: answer.get('question'), a: answer.get('answer')}, true);
     controller.set('model', answer);
   },
   deactivate: function(){

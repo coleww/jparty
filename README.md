@@ -25,7 +25,9 @@ Or to run the app directly against jservice.io (not recommended)
 
 - `ember serve --environment=production`
 
+## Web Sockets
 
+[Run this thing](https://github.com/coleww/websocket-message-passer-thing) to pass messages between "game" and "host".
 
 ## Prerequisites
 

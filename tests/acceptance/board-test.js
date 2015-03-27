@@ -191,3 +191,11 @@ test('deducting points from all players closes the answer', function(assert){
     assert.equal(currentRouteName(), 'game.index');
   });
 });
+
+test('board shows link for host', function(assert){
+  assert.expect(1);
+  visit('/');
+  andThen(function(){
+    assert.equal(find('a:contains("host/")').size(), 1);
+  });
+});
