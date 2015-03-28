@@ -1,5 +1,5 @@
 <div class="category cell">{{categoryTitle}}</div>
-{{#each value in category.answers}}
+{{#each category.answers as |value|}}
   <div class="answer cell" {{action 'ask' category value}}>
     {{#if value.asked}}
     {{else}}
