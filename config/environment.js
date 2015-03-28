@@ -29,7 +29,6 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
-    ENV.api_namespace = 'api';
   }
 
   if (environment === 'test') {
@@ -46,7 +45,6 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     ENV.api_host = 'https://cors-anywhere.herokuapp.com/jservice.io';
-    ENV.api_namespace = 'api';
   }
 
   return ENV;
