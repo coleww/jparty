@@ -1,4 +1,6 @@
 export default function() {
+  this.namespace = 'api';
+  this.timing = 100;
 
   this.get('/categories', function(db){
     return db.categories;
@@ -16,8 +18,8 @@ export default function() {
   /*
     Default config
   */
-  this.namespace = 'api';   // make this `api`, for example, if your API is namespaced
-  // this.timing = 400;      delay for each request, automatically set to 0 during testing
+    // make this `api`, for example, if your API is namespaced
+  //      delay for each request, automatically set to 0 during testing
 
   /*
     Route shorthand cheatsheet
