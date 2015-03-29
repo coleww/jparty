@@ -8,7 +8,6 @@ export default Ember.Route.extend(socketMixin, {
   },
 
   setupController: function(controller, model) {
-
     this.set('socketURL', 'ws://localhost:8080/room/' + model.id);
     this._super.apply(this, arguments);
   }
