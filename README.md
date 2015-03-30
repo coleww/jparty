@@ -6,6 +6,16 @@ An Ember front-end for [jservice](http://jservice.io/)
 
 _________________________________________________
 
+## Web Sockets
+
+[Run this thing](https://github.com/coleww/websocket-message-passer-thing) to pass messages between "game" and "host".
+
+### TODO: convert all the WS stuff to two-tab localstorage events...
+
+http://stackoverflow.com/questions/1366483/javascript-sharing-data-between-tabs
+https://www.npmjs.com/package/ember-local-storage
+
+(also: persist game state in this fashion...)
 
 ## setting up a jService
 
@@ -24,10 +34,6 @@ You can also run the app against a local version of jService:
 Or to run the app directly against jservice.io (not recommended)
 
 - `ember serve --environment=production`
-
-## Web Sockets
-
-[Run this thing](https://github.com/coleww/websocket-message-passer-thing) to pass messages between "game" and "host".
 
 ## Prerequisites
 
