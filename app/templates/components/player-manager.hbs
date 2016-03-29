@@ -4,7 +4,7 @@
       {{score-display player.score}}
     </div>
     {{#if player.editingName}}
-      {{input action="saveName" placeholder=player.name value=player.name class="edit-name" }}
+      {{input enter="saveName" placeholder=player.name value=player.name class="edit-name" }}
     {{else}}
       <div class="name" {{action "editName" player}}>
         {{player.name}}

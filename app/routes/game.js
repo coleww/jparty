@@ -1,8 +1,7 @@
 import Ember from 'ember';
-import socketMixin from 'ember-websockets/mixins/sockets';
 import generateGameId from '../helpers/generate-game-id';
 
-export default Ember.Route.extend(socketMixin, {
+export default Ember.Route.extend({
   socketURL: null,
   players: Ember.inject.service('players'),
   model: function(){
