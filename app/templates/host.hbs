@@ -7,13 +7,5 @@
 {{#if active}}
 <button class="pass" {{action "pass"}}></button>
 {{/if}}
-{{#each players as |player|}}
-  <div class="player">
-    {{player.name}}
+{{player-manager service=players}}
 
-    {{#if player.active}}
-      <button class="deduct" {{action "deduct" player}}>-</button>
-      <button class="assign" {{action "assign" player}}>+</button>
-    {{/if}}
-  </div>
-{{/each}}

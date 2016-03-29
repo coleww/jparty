@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   currentClue: null,
-  players: null,
+  players: Ember.inject.service('players'),
   active: false,
   actions: {
     onmessage: function(socketEvent){

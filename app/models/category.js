@@ -7,6 +7,7 @@ export default DS.Model.extend({
 
   answers: null,
   addAnswers: function(){
+    // pull from LS or create new
     var answers = Ember.A([
       Ember.Object.create({value: 200, asked: false}),
       Ember.Object.create({value: 400, asked: false}),

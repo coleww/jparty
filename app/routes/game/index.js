@@ -7,7 +7,7 @@ export default Ember.Route.extend({
   setupController: function(controller, model){
     var top_six = model.sortBy('clues_count').filter(function(item, index, enumerable){
       return index >= (enumerable.length - 6);
-    }); // Grab the six categories with the most clues.
+    }); // Grab the six categories with the most clues. //SERIALIZE HERE?!?!
     controller.set('model', top_six);
   }
 });
