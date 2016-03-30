@@ -30,6 +30,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
     ENV.store_data = true;
+    ENV.prefix = 'dev'
   }
 
   if (environment === 'test') {
@@ -41,12 +42,14 @@ module.exports = function(environment) {
     ENV.APP.LOG_ACTIVE_GENERATION = false;
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
+    ENV.prefix = 'test'
     ENV.APP.rootElement = '#ember-testing';
   }
 
   if (environment === 'production') {
     ENV.api_host = 'https://cors-anywhere.herokuapp.com/jservice.io';
     ENV.store_data = true;
+    ENV.prefix = 'pro'
   }
 
   return ENV;

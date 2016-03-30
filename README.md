@@ -6,16 +6,50 @@ An Ember front-end for [jservice](http://jservice.io/)
 
 _________________________________________________
 
-## Web Sockets
+### TODO: 
 
-[Run this thing](https://github.com/coleww/websocket-message-passer-thing) to pass messages between "game" and "host".
 
-### TODO: convert all the WS stuff to two-tab localstorage events...
+
+some way to create/export category data. 
+any number of rounds
+final jeopardy mode (its just 1 answer write?)
+
+
+
+start new game (ARE YOU SURE?!?!?!?!)
+end game when rounds are over? hrm. 
+
+must ensure when resuming game that active states are restored properly!
+
+
+convert all the WS stuff to two-tab localstorage events...
 
 http://stackoverflow.com/questions/1366483/javascript-sharing-data-between-tabs
 https://www.npmjs.com/package/ember-local-storage
 
 (also: persist game state in this fashion...)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## setting up a jService
 
