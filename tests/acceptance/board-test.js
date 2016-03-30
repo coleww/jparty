@@ -9,6 +9,7 @@ var application;
 
 module('Acceptance: Game Board', {
   beforeEach: function() {
+
     application = startApp();
   },
 
@@ -18,6 +19,7 @@ module('Acceptance: Game Board', {
 });
 
 test('board show names of 6 categories', function(assert) {
+  localStorage.clear();
   assert.expect(7);
   server.create('category', {title: 'animals'});
   server.create('category', {title: 'science'});
@@ -40,6 +42,7 @@ test('board show names of 6 categories', function(assert) {
 });
 
 test('answers show value', function(assert) {
+  localStorage.clear();
   assert.expect(5);
   for(var i=0;i<6;i++) server.create('category');
   visit('/');
@@ -53,6 +56,7 @@ test('answers show value', function(assert) {
 });
 
 test('board shows players with default names, which can be changed', function(assert){
+  localStorage.clear();
   assert.expect(5);
   visit('/');
   andThen(function(){
@@ -71,6 +75,7 @@ test('board shows players with default names, which can be changed', function(as
 });
 
 test('clicking an answer reveals it', function(assert) {
+  localStorage.clear();
   assert.expect(2);
   var category = server.create('category');
   var answerJSON = {
@@ -90,6 +95,7 @@ test('clicking an answer reveals it', function(assert) {
 });
 
 test('answer can be passed, which hides assign/deduct buttons', function(assert) {
+  localStorage.clear();
   assert.expect(4);
   var category = server.create('category');
   var answer = server.create('answer', {category_id: category.id});
@@ -110,6 +116,7 @@ test('answer can be passed, which hides assign/deduct buttons', function(assert)
 });
 
 test('answer value can be assigned to players score, which ends the answer, and hides assign/deduct buttons', function(assert) {
+  localStorage.clear();
   assert.expect(5);
   var category = server.create('category');
   var answer = server.create('answer', {category_id: category.id});
@@ -132,6 +139,7 @@ test('answer value can be assigned to players score, which ends the answer, and 
 });
 
 test('answer value can be deducted from players score', function(assert) {
+  localStorage.clear();
   assert.expect(2);
   var category = server.create('category');
   var answer = server.create('answer', {category_id: category.id});
@@ -151,6 +159,7 @@ test('answer value can be deducted from players score', function(assert) {
 });
 
 test('assign/deduct buttons disappear after use', function(assert){
+  localStorage.clear();
   assert.expect(6);
   var category = server.create('category');
   var answer = server.create('answer', {category_id: category.id});
@@ -179,6 +188,7 @@ test('assign/deduct buttons disappear after use', function(assert){
 
 
 test('deducting points from all players closes the answer', function(assert){
+  localStorage.clear();
   assert.expect(1);
   var category = server.create('category');
   var answer = server.create('answer', {category_id: category.id});
@@ -192,6 +202,7 @@ test('deducting points from all players closes the answer', function(assert){
 });
 
 test('board shows link for host', function(assert){
+  localStorage.clear();
   assert.expect(1);
   visit('/');
   andThen(function(){

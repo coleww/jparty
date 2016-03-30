@@ -23,7 +23,7 @@
     "currentPath",
     "currentRouteName",
     "server",
-    "localstorage"
+    "localStorage"
   ],
   "node": false,
   "browser": false,
