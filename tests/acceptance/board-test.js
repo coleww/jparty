@@ -55,7 +55,6 @@ test('answers show value', function(assert) {
 test('board shows players with default names, which can be changed', function(assert){
   assert.expect(5);
   visit('/');
-
   andThen(function(){
     assert.equal(find('.player .name:contains("Player 1")').size(), 1);
     assert.equal(find('.player .name:contains("Player 2")').size(), 1);
@@ -196,6 +195,6 @@ test('board shows link for host', function(assert){
   assert.expect(1);
   visit('/');
   andThen(function(){
-    assert.equal(find('a:contains("host/")').size(), 1);
+    assert.equal(find('a:contains("host")').size(), 1);
   });
 });

@@ -2,7 +2,7 @@ import Ember from 'ember';
 import StorageArray from 'ember-local-storage/local/array';
 import ENV from '../config/environment';
 
-var PlayerStorage = StorageArray.extend({storageKey: 'jparty-players'});
+var PlayerStorage = StorageArray.extend({storageKey: 'jparty'});
 
 export default Ember.Service.extend({
   init: function(){
@@ -17,7 +17,7 @@ export default Ember.Service.extend({
   answerWatcher: function(){
     if(this.get('currentAnswer')){
       this.get('players').invoke('set', 'active', true);
-    }else {
+    } else {
       this.get('players').invoke('set', 'active', false);
     }
   }.observes('currentAnswer'),
@@ -35,7 +35,7 @@ export default Ember.Service.extend({
   },
 
   _setPlayers: function(){
-    this.set('playerStorage', PlayerStorage.create())
+    this.set('playerStorage', PlayerStorage.create());
     var newGame = !this.get('playerStorage.length') && ENV.store_data;
     var players = Ember.A();
     for(var i=0;i<3;i++){

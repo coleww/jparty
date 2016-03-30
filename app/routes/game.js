@@ -1,5 +1,4 @@
 import Ember from 'ember';
-import generateGameId from '../helpers/generate-game-id';
 
 export default Ember.Route.extend({
   socketURL: null,
@@ -9,11 +8,8 @@ export default Ember.Route.extend({
     return this.store.find('category', {count: 100, offset: randomOffset});
   },
   setupController: function(controller){
-    var gameId = generateGameId();
-    this.set('socketURL', 'ws://localhost:8080/room/' + gameId);
-    this._super.apply(this, arguments);
     controller.set('players', this.get('players'));
-    controller.set('hostUrl', 'host/'+gameId);
+    this._super.apply(this, arguments);
   },
   actions: {
     leavingAnswer: function(){

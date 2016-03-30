@@ -9,7 +9,7 @@ Router.map(function() {
   this.resource('game', {path: '/'}, function(){
     this.route('answer', {path: '/categories/:category_id/answer/:answer_value'});
   });
-  this.route('host', {path: 'host/:game_id'});
+  this.route('host');
 });
 
 export default Router;

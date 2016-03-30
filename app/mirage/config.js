@@ -1,4 +1,5 @@
 export default function() {
+  this.urlPrefix = '';
   this.namespace = 'api';
   this.timing = 100;
 
