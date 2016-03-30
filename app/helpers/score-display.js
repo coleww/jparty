@@ -8,4 +8,4 @@ export function scoreDisplay(score) {
   return prefix + Math.abs(score);
 }
 
-export default Ember.HTMLBars.makeBoundHelper(scoreDisplay);
+export default Ember.Helper.helper(scoreDisplay);
